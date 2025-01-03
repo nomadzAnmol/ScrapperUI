@@ -1,0 +1,243 @@
+/* General Styles */
+body {
+  background-color: #121212; /* Dark background */
+  color: white; /* White text */
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100vh; /* Make sure the body takes full screen height */
+}
+
+.chatbot-container {
+  display: flex;
+  height: 100vh; /* Make the container fill the full viewport height */
+  width: 100vw;  /* Make the container fill the full viewport width */
+}
+
+.sidebar {
+  width: 250px;
+  background-color: #1f1f1f; /* Dark sidebar */
+  padding: 20px;
+  transition: width 0.3s;
+  flex-shrink: 0; /* Prevent sidebar from shrinking */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Ensures content is distributed, pushing user details to bottom */
+}
+
+.sidebar.open {
+  width: 250px;
+}
+
+.sidebar.closed {
+  width: 60px; /* Narrow sidebar when closed */
+}
+
+.sidebar-header button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.sidebar-header button:hover {
+  color: #ff6f61;
+}
+
+.chat-history h4 {
+  margin-bottom: 10px;
+}
+
+.chat-history ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.chat-history li {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.chat-history li:hover {
+  background-color: #333;
+}
+
+.user-details {
+  margin-top: auto; /* Push the user details to the bottom of the sidebar */
+  text-align: center;
+  color: #ccc;
+}
+
+.user-details button {
+  background-color: #ff6f61;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+
+.user-details button:hover {
+  background-color: #e15a50;
+}
+
+/* Main Chat Area */
+.main-chat {
+  flex: 1;
+  background-color: #181818; /* Dark main chat background */
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  overflow: hidden; /* Prevent scrollbars from appearing */
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.header h2 {
+  margin: 0;
+  color: white;
+}
+
+.messages {
+  flex-grow: 1;
+  overflow-y: auto;
+  margin-bottom: 20px;
+}
+
+.message {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.message.user p {
+  background-color: #333;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  max-width: 70%;
+}
+
+.message.bot p {
+  background-color: #444;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  max-width: 70%;
+}
+
+.message p {
+  margin: 0;
+}
+
+.message .bot-logo {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+}
+
+.input-area {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px; /* This will create a small space between the input and button */
+}
+
+.input-area input {
+  width: 85%; /* Adjust width as needed */
+  padding: 10px;
+  background-color: #333;
+  color: white;
+  border: 1px solid #555;
+  border-radius: 5px;
+  margin-right: 0; /* Remove any default margin */
+}
+
+.input-area button {
+  background-color: #ff6f61;
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 15%; /* Adjust width to control size of button */
+}
+
+.input-area button:hover {
+  background-color: #e15a50;
+}
+
+/* Ads Section */
+.ads-section {
+  padding: 20px;
+  background-color: #1f1f1f;
+  flex-shrink: 0; /* Prevent the ads section from shrinking */
+}
+
+.ads-section h4 {
+  color: white;
+}
+
+.ads-section img {
+  width: 100%;
+  max-width: 300px;
+  margin: 10px 0;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .chatbot-container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    height: 50px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+  .main-chat {
+    margin-top: 50px;
+  }
+
+  .input-area input {
+    width: 70%;
+  }
+
+  .input-area button {
+    width: 25%;
+  }
+}
+/* Add some basic styling for the logout pop-up */
+.logout-message {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  z-index: 1000;  /* Make sure it appears on top of other content */
+  opacity: 0;
+  animation: fadeOut 2s forwards;  /* Animate the fade-out effect */
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
